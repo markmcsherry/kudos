@@ -4,8 +4,8 @@ This page describes how to maintain and update documentation in the Kudos projec
 
 ## Scope
 - Documentation source lives in `docs/`.
-- Published docs are built with MkDocs Material using [`../mkdocs.yml`](../mkdocs.yml).
-- Deployment to GitHub Pages is handled by [`.github/workflows/docs.yml`](../.github/workflows/docs.yml).
+- Published docs are built with MkDocs Material using `mkdocs.yml` at the repository root.
+- Deployment to GitHub Pages is handled by `.github/workflows/docs.yml` at the repository root.
 
 ## Core Practices
 - Keep pages concise and focused on one concern.
