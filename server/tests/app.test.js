@@ -9,4 +9,10 @@ describe("server app", () => {
     assert.equal(response.status, 200);
     assert.deepEqual(response.body, { status: "ok" });
   });
+
+  it("returns db health payload", async () => {
+    const response = await request(app).get("/health/db");
+    assert.ok(response.status === 200 || response.status === 503);
+    assert.ok(response.body.database === "up" || response.body.database === "down");
+  });
 });
