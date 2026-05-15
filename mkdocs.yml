@@ -1,0 +1,42 @@
+site_name: Kudos Docs
+site_description: Documentation for the Kudos project
+docs_dir: docs
+site_dir: site
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+nav:
+  - Home: index.md
+  - AI Strategy: ai_strategy.md
+  - Contributing: contributing.md
+  - Maintaining Docs: maintaining_docs.md
+  - AI:
+      - Master Spec: ai/master_spec.md
+      - Context:
+          - Project Context: ai/context/project_context.md
+          - Glossary: ai/context/glossary.md
+      - Specs:
+          - Requirements: ai/specs/requirements.md
+          - Design Spec: ai/specs/design_spec.md
+          - Architecture Concept: ai/specs/architecture_concept.md
+      - Quality:
+          - Testing Strategy: ai/quality/testing_strategy.md
+          - Security Baseline: ai/quality/security_baseline.md
+      - Engineering:
+          - Coding Standards: ai/engineering/coding_standards.md
+          - Common Pitfalls: ai/engineering/common_pitfalls.md
+      - Decisions:
+          - Decision Log: ai/decisions/decision_log.md
+      - Personas:
+          - Developer: ai/personas/developer.md
+          - Tester: ai/personas/tester.md
+          - Security Reviewer: ai/personas/security_reviewer.md
+          - Designer: ai/personas/designer.md
+          - DevOps: ai/personas/devops.md
+markdown_extensions:
+  - admonition
+  - tables
