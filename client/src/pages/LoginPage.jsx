@@ -9,6 +9,8 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -44,37 +46,43 @@ function LoginPage() {
   }
 
   return (
-    <Container maxWidth="sm" sx={{ py: 8 }}>
-      <Paper sx={{ p: 4, borderRadius: 3 }}>
-        <Stack spacing={3} component="form" onSubmit={onSubmit}>
-          <Typography variant="h4" component="h1">
-            Login
-          </Typography>
-          {error && <Alert severity="error">{error}</Alert>}
-          <TextField
-            label="Email"
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
-          <TextField
-            label="Password"
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
-          />
-          <Button type="submit" variant="contained" disabled={loading}>
-            {loading ? "Signing in..." : "Sign in"}
-          </Button>
-          <Box>
-            <Typography variant="body2">
-              Need an account? <Link to="/register">Register</Link>
-            </Typography>
-          </Box>
-        </Stack>
-      </Paper>
+    <Container maxWidth="lg" sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <Header />
+      <Box component="main" sx={{ flex: 1, display: "grid", placeItems: "center", py: 6 }}>
+        <Container maxWidth="sm">
+          <Paper sx={{ p: 4, borderRadius: 3 }}>
+            <Stack spacing={3} component="form" onSubmit={onSubmit}>
+              <Typography variant="h4" component="h1">
+                Login
+              </Typography>
+              {error && <Alert severity="error">{error}</Alert>}
+              <TextField
+                label="Email"
+                type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                required
+              />
+              <TextField
+                label="Password"
+                type="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                required
+              />
+              <Button type="submit" variant="contained" disabled={loading}>
+                {loading ? "Signing in..." : "Sign in"}
+              </Button>
+              <Box>
+                <Typography variant="body2">
+                  Need an account? <Link to="/register">Register</Link>
+                </Typography>
+              </Box>
+            </Stack>
+          </Paper>
+        </Container>
+      </Box>
+      <Footer />
     </Container>
   );
 }
