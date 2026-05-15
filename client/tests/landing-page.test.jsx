@@ -40,4 +40,12 @@ describe("LandingPage", () => {
     renderWithProviders(<LandingPage />, { mode: "dark" });
     expect(screen.getByRole("heading", { name: "Kudos" })).toBeInTheDocument();
   });
+
+  it("shows profile area instead of auth links when logged in", () => {
+    renderWithProviders(<LandingPage />, { user: { firstName: "Alex" } });
+    expect(screen.queryByRole("link", { name: "Register" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Login" })).not.toBeInTheDocument();
+    expect(screen.getByLabelText("Profile")).toBeInTheDocument();
+    expect(screen.getByText("Alex")).toBeInTheDocument();
+  });
 });

@@ -88,3 +88,55 @@ Use this file to capture meaningful technical decisions in lightweight ADR forma
 
 #### Follow-up TODO
 - Add persistent session storage before staging/production rollout (for example PostgreSQL-backed sessions via `connect-pg-simple` or Redis-backed sessions), replacing default in-memory session storage.
+
+### DEC-0007: Expand product scope to include qualifications/certifications tracking
+- Date: 2026-05-15
+- Status: Proposed
+- Context: Product direction is being considered to extend Kudos beyond recognition events into profile-based qualifications tracking (for example certifications awarded or uploaded).
+- Decision: Pending final decision on whether certifications become a first-class product capability in roadmap scope.
+- Consequences: If accepted, this introduces new data model, UX, privacy, and verification requirements and should likely be managed as a dedicated epic.
+- Alternatives considered:
+  - Keep Kudos focused only on recognition events.
+  - Add certifications as lightweight profile metadata only (no upload/verification).
+  - Add full certifications capability with document upload, validation, and reminders.
+
+#### Follow-up TODO
+- Run product/architecture/security discovery to define:
+  - audience and visibility model
+  - verification requirements
+  - document handling and compliance constraints
+  - phased delivery approach (MVP vs full capability)
+
+### DEC-0008: Visibility model for kudos (private/public/org-scoped)
+- Date: 2026-05-15
+- Status: Proposed
+- Context: Current direction suggests kudos should be visible beyond only the recipient, but visibility may need to vary by recipient preference and organizational structure.
+- Decision: Pending definition of a visibility model that balances recognition value with user control and organizational policy.
+- Consequences: This decision impacts data model, access control, UI controls, moderation needs, and compliance/privacy posture.
+- Alternatives considered:
+  - Recipient-only visibility (private by default, no sharing)
+  - Organization-default visibility (team/org visibility with optional recipient override)
+  - Recipient-controlled visibility per kudos (`private`, `team`, `org`, `public`)
+  - Hybrid model (recipient-level default plus per-kudos ad hoc override)
+
+#### Follow-up TODO
+- Define product and policy rules for:
+  - default visibility at org and user levels
+  - recipient override capability (global default and per-kudos ad hoc)
+  - visibility inheritance for team/org structures
+  - auditability and moderation requirements for public/org-visible kudos
+
+### DEC-0009: Use REST endpoints now with planned GraphQL transition later
+- Date: 2026-05-15
+- Status: Accepted
+- Context: Current delivery needs require fast implementation of auth and early user flows, while long-term architecture direction still targets GraphQL.
+- Decision: Continue with pragmatic REST endpoints for current incremental delivery and defer GraphQL refactor until broader domain/API surface exists.
+- Consequences: Faster near-term delivery and simpler debugging; future work must map existing REST behavior/tests to GraphQL equivalents during transition.
+- Alternatives considered:
+  - Block feature delivery until GraphQL-first API layer is implemented.
+  - Build temporary GraphQL wrappers immediately around minimal current functionality.
+
+#### Follow-up TODO
+- Define migration trigger criteria (for example: number of domains/endpoints, duplication pain, cross-client API needs).
+- Add API contract documentation so current REST behavior is preserved during GraphQL migration.
+- Plan staged migration (auth first vs domain-by-domain) with compatibility strategy.
