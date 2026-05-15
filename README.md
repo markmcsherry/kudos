@@ -24,6 +24,12 @@ At a product level, this can support broader gamification of tasks that need to 
 ## Local Development
 - Install dependencies:
   - `npm install`
+- Start local database:
+  - `npm run db:up`
+- Apply migrations:
+  - `npm run db:migrate`
+- Seed sample data:
+  - `npm run db:seed`
 - Run client and server in watch mode:
   - `npm run dev`
 - Build frontend assets:
@@ -32,6 +38,22 @@ At a product level, this can support broader gamification of tasks that need to 
   - `npm run start`
 
 By default, the server listens on `http://localhost:3000`.
+
+## Database Reset (Local)
+- Reset schema state:
+  - `npm run db:reset`
+- Re-apply schema and data:
+  - `npm run db:migrate`
+  - `npm run db:seed`
+
+## Environment Configuration
+- Copy `.env.example` to `.env` and set local values.
+- Required variables for local DB workflows:
+  - `POSTGRES_DB`
+  - `POSTGRES_USER`
+  - `POSTGRES_PASSWORD`
+  - `POSTGRES_PORT`
+  - `DATABASE_URL`
 
 ## Quality Checks
 - Lint all workspaces:
@@ -46,6 +68,14 @@ By default, the server listens on `http://localhost:3000`.
   - `docker run --rm -p 3000:3000 kudos:local`
 
 Open `http://localhost:3000` to view the landing page.
+
+## Local Verification
+- App health:
+  - `curl.exe -s http://localhost:3000/health`
+- DB health:
+  - `curl.exe -s -i http://localhost:3000/health/db`
+
+If DB health returns `503`, verify DB container is running and environment variables are set correctly.
 
 ## Contributing
 - Follow [`docs/contributing.md`](docs/contributing.md) for contribution expectations and workflow.

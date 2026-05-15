@@ -65,3 +65,13 @@ Use this file to capture meaningful technical decisions in lightweight ADR forma
 - Alternatives considered:
   - Single folder app with no explicit client/server split.
   - Single-stage Docker image with build tooling kept in runtime image.
+
+### DEC-0005: Local database baseline via PostgreSQL container and SQL migrations
+- Date: 2026-05-15
+- Status: Accepted
+- Context: Issue #13 requires a local development database with stable schema setup, repeatable seed data, and security-conscious configuration.
+- Decision: Use PostgreSQL in Docker Compose for local runtime, SQL file-based migrations applied by a Node migration runner, and deterministic SQL seed scripts.
+- Consequences: Faster onboarding and reproducible local data workflows; schema evolution is traceable through migration files.
+- Alternatives considered:
+  - Manual schema setup in psql.
+  - ORM-managed schema sync without explicit migration files.
