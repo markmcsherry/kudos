@@ -8,6 +8,7 @@ import { renderWithProviders } from "./test-utils";
 describe("LandingPage", () => {
   it("renders title and blurb", () => {
     renderWithProviders(<LandingPage />);
+    expect(screen.getByRole("img", { name: "Kudos logo" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Kudos" })).toBeInTheDocument();
     expect(screen.getByText(/lightweight place to recognize/i)).toBeInTheDocument();
   });
@@ -23,6 +24,8 @@ describe("LandingPage", () => {
   it("supports keyboard navigation to controls", async () => {
     const user = userEvent.setup();
     renderWithProviders(<LandingPage />);
+    await user.tab();
+    expect(screen.getByRole("link", { name: "Kudos home" })).toHaveFocus();
     await user.tab();
     expect(screen.getByRole("link", { name: "Register" })).toHaveFocus();
     await user.tab();
