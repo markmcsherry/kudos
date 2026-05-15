@@ -76,6 +76,8 @@ For a short human onboarding overview, see [`../ai_strategy.md`](../ai_strategy.
 - [`personas/security_reviewer.md`](personas/security_reviewer.md)
 - [`personas/designer.md`](personas/designer.md)
 - [`personas/devops.md`](personas/devops.md)
+- [`personas/product_owner.md`](personas/product_owner.md)
+- [`personas/architect.md`](personas/architect.md)
 
 ## Document Metadata Template
 Use this at the top of each file:

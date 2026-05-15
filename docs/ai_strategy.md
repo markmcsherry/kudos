@@ -26,6 +26,8 @@ This document indexes the lightweight AI documentation under `docs/ai/` used to 
   - `security_reviewer.md`
   - `designer.md`
   - `devops.md`
+  - `product_owner.md`
+  - `architect.md`
 - Use personas as focused review lenses, not as replacements for the full spec:
   - Start with `ai/master_spec.md` and the core task docs.
   - Add one or more persona docs based on the work being done (for example: `tester.md` for test planning, `security_reviewer.md` for auth/data flows).

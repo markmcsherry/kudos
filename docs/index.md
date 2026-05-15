@@ -25,3 +25,5 @@ At a product level, this can support broader gamification of tasks that need to 
 - Security reviewer: [`ai/personas/security_reviewer.md`](ai/personas/security_reviewer.md)
 - Designer: [`ai/personas/designer.md`](ai/personas/designer.md)
 - DevOps: [`ai/personas/devops.md`](ai/personas/devops.md)
+- Product owner: [`ai/personas/product_owner.md`](ai/personas/product_owner.md)
+- Architect: [`ai/personas/architect.md`](ai/personas/architect.md)

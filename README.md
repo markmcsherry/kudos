@@ -1,8 +1,8 @@
 # kudos
 
-Kudos is a project focused on recognition: awarding special thanks to people for valuable contributions, and optionally allowing people to award themselves for completed work.
+Kudos is a project centered on recognition: awarding special thanks to people for contributions, and optionally allowing people to award themselves for completed work.
 
-This can be part of a broader gamification model for tasks that teams need to complete and maintain.
+At a product level, this can support broader gamification of tasks that need to be done, tracked, or maintained across teams.
 
 ## Documentation
 - Project entry point: [`docs/index.md`](docs/index.md)
