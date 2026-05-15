@@ -55,3 +55,13 @@ Use this file to capture meaningful technical decisions in lightweight ADR forma
       - Weaker day-to-day workflow for ownership, lifecycle, and discussion compared with issues.
       - More manual effort to keep execution status in sync.
       - Risk of stale requirements if document updates lag implementation.
+
+### DEC-0004: Initial landing runtime structure and container strategy
+- Date: 2026-05-15
+- Status: Accepted
+- Context: Issue #8 requires a first landing page plus a runnable Node/React containerized baseline.
+- Decision: Implement a separated `client/` React app and `server/` Node Express static host, with a multi-stage Docker build that compiles the client and serves built assets from the server.
+- Consequences: Clear separation of frontend and runtime responsibilities, reproducible container builds, and a straightforward path to later API/service expansion.
+- Alternatives considered:
+  - Single folder app with no explicit client/server split.
+  - Single-stage Docker image with build tooling kept in runtime image.
