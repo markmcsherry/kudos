@@ -75,3 +75,16 @@ Use this file to capture meaningful technical decisions in lightweight ADR forma
 - Alternatives considered:
   - Manual schema setup in psql.
   - ORM-managed schema sync without explicit migration files.
+
+### DEC-0006: Initial auth implementation strategy for user pages
+- Date: 2026-05-15
+- Status: Accepted
+- Context: Issue #12 requires register/login/dashboard pages with basic authentication flow while avoiding premature complexity.
+- Decision: Use Passport local strategy with session-based authentication for initial page flow, and render static mocked kudos data on dashboard until API integration is implemented.
+- Consequences: Fast delivery of core user flow and protected routing; future work must replace mocked dashboard data and harden auth for production needs.
+- Alternatives considered:
+  - Full token-based auth implementation in first iteration.
+  - Blocking dashboard build until live kudos API is complete.
+
+#### Follow-up TODO
+- Add persistent session storage before staging/production rollout (for example PostgreSQL-backed sessions via `connect-pg-simple` or Redis-backed sessions), replacing default in-memory session storage.

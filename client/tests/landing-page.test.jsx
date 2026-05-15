@@ -14,8 +14,8 @@ describe("LandingPage", () => {
 
   it("renders register/login and footer links", () => {
     renderWithProviders(<LandingPage />);
-    expect(screen.getByRole("button", { name: "Register" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Login" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Register" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Login" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Home" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "About" })).toBeInTheDocument();
   });
@@ -24,9 +24,9 @@ describe("LandingPage", () => {
     const user = userEvent.setup();
     renderWithProviders(<LandingPage />);
     await user.tab();
-    expect(screen.getByRole("button", { name: "Register" })).toHaveFocus();
+    expect(screen.getByRole("link", { name: "Register" })).toHaveFocus();
     await user.tab();
-    expect(screen.getByRole("button", { name: "Login" })).toHaveFocus();
+    expect(screen.getByRole("link", { name: "Login" })).toHaveFocus();
   });
 
   it("renders semantic regions", () => {

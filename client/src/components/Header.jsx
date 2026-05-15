@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -13,10 +14,10 @@ function Header() {
           Kudos
         </Typography>
         <Box sx={{ display: "flex", gap: 1 }}>
-          <Button variant="outlined" aria-label="Register">
+          <Button variant="outlined" aria-label="Register" component={Link} to="/register">
             Register
           </Button>
-          <Button variant="contained" aria-label="Login">
+          <Button variant="contained" aria-label="Login" component={Link} to="/login">
             Login
           </Button>
         </Box>

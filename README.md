@@ -39,6 +39,22 @@ At a product level, this can support broader gamification of tasks that need to 
 
 By default, the server listens on `http://localhost:3000`.
 
+## Authentication Pages (Issue #12)
+- Available routes:
+  - `/register`
+  - `/login`
+  - `/dashboard` (protected)
+- Auth endpoints:
+  - `POST /auth/register`
+  - `POST /auth/login`
+  - `POST /auth/logout`
+  - `GET /auth/me`
+- Current phase uses basic Passport local auth suitable for initial workflows.
+
+## Dashboard Mock Data
+- The dashboard currently includes a static mocked kudos list (minimum 3 entries) to validate UX and layout.
+- This is temporary and should be replaced with API-driven data in a follow-up story.
+
 ## Database Reset (Local)
 - Reset schema state:
   - `npm run db:reset`
