@@ -20,7 +20,9 @@ export default [
       globals: {
         document: "readonly",
         window: "readonly",
-        console: "readonly"
+        console: "readonly",
+        fetch: "readonly",
+        setTimeout: "readonly"
       }
     },
     plugins: {
@@ -35,7 +37,8 @@ export default [
     rules: {
       ...react.configs.recommended.rules,
       ...hooks.configs.recommended.rules,
-      "react/react-in-jsx-scope": "off"
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off"
     }
   }
 ];

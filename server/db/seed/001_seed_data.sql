@@ -10,3 +10,6 @@ VALUES
   (2, 'Great support during onboarding.', 'support', 2, 1),
   (3, 'Excellent documentation improvements.', 'quality', 1, 1)
 ON CONFLICT (id) DO NOTHING;
+
+SELECT setval('users_id_seq', COALESCE((SELECT MAX(id) FROM users), 1), true);
+SELECT setval('kudos_id_seq', COALESCE((SELECT MAX(id) FROM kudos), 1), true);

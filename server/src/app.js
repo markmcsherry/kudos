@@ -1,13 +1,35 @@
 import express from "express";
+import session from "express-session";
 import path from "path";
 import { fileURLToPath } from "url";
 import { checkDatabaseHealth } from "../db/client.js";
+import passport from "./auth/passport.js";
+import authRoutes from "./auth/routes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const staticDir = path.resolve(__dirname, "../../client/dist");
 
 const app = express();
+
+app.use(express.json());
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "kudos-local-session-secret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      httpOnly: true,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 1000 * 60 * 60 * 8
+    }
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use("/auth", authRoutes);
 
 app.get("/health", async (_req, res) => {
   res.json({ status: "ok" });
