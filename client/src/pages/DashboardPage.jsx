@@ -9,6 +9,8 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const mockedKudos = [
   {
@@ -48,60 +50,64 @@ function DashboardPage() {
   }
 
   return (
-    <Container maxWidth="lg" sx={{ py: 6 }}>
-      <Stack spacing={3}>
-        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 2 }}>
-          <Box>
-            <Typography variant="h4" component="h1">
-              Welcome {user?.firstName || "User"}
-            </Typography>
-            <Typography color="text.secondary">Your Kudos workspace overview</Typography>
+    <Container maxWidth="lg" sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <Header />
+      <Box component="main" sx={{ flex: 1, py: 6 }}>
+        <Stack spacing={3}>
+          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 2 }}>
+            <Box>
+              <Typography variant="h4" component="h1">
+                Welcome {user?.firstName || "User"}
+              </Typography>
+              <Typography color="text.secondary">Your Kudos workspace overview</Typography>
+            </Box>
+            <Button variant="outlined" onClick={logout}>
+              Logout
+            </Button>
           </Box>
-          <Button variant="outlined" onClick={logout}>
-            Logout
-          </Button>
-        </Box>
 
-        <Grid container spacing={2}>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Card>
-              <CardContent>
-                <Typography variant="h6">Create Kudos</Typography>
-                <Typography color="text.secondary">Start recognizing a valuable contribution.</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Card>
-              <CardContent>
-                <Typography variant="h6">My Kudos Received</Typography>
-                <Typography color="text.secondary">Review kudos awarded to you.</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-
-        <Box>
-          <Typography variant="h5" sx={{ mb: 2 }}>
-            Recent Kudos (mocked)
-          </Typography>
-          <Stack spacing={2}>
-            {mockedKudos.map((item) => (
-              <Card key={item.id} variant="outlined">
+          <Grid container spacing={2}>
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Card>
                 <CardContent>
-                  <Typography variant="subtitle1">{item.description}</Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    From: {item.from} | To: {item.to}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Date: {item.date} | Type: {item.type}
-                  </Typography>
+                  <Typography variant="h6">Create Kudos</Typography>
+                  <Typography color="text.secondary">Start recognizing a valuable contribution.</Typography>
                 </CardContent>
               </Card>
-            ))}
-          </Stack>
-        </Box>
-      </Stack>
+            </Grid>
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Card>
+                <CardContent>
+                  <Typography variant="h6">My Kudos Received</Typography>
+                  <Typography color="text.secondary">Review kudos awarded to you.</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+
+          <Box>
+            <Typography variant="h5" sx={{ mb: 2 }}>
+              Recent Kudos (mocked)
+            </Typography>
+            <Stack spacing={2}>
+              {mockedKudos.map((item) => (
+                <Card key={item.id} variant="outlined">
+                  <CardContent>
+                    <Typography variant="subtitle1">{item.description}</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      From: {item.from} | To: {item.to}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Date: {item.date} | Type: {item.type}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              ))}
+            </Stack>
+          </Box>
+        </Stack>
+      </Box>
+      <Footer />
     </Container>
   );
 }

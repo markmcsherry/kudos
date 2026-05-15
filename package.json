@@ -8,6 +8,8 @@
   ],
   "scripts": {
     "dev": "concurrently \"npm:dev --workspace client\" \"npm:dev --workspace server\"",
+    "dev:full": "npm run db:up && npm run db:migrate && npm run db:seed && npm run dev",
+    "dev:down": "docker compose down",
     "build": "npm run build --workspace client",
     "start": "npm run start --workspace server",
     "db:up": "docker compose up -d db",
