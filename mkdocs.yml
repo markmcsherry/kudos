@@ -13,10 +13,11 @@ theme:
     - navigation.top
     - content.code.copy
 nav:
-  - Home: index.md
-  - AI Strategy: ai_strategy.md
-  - Contributing: contributing.md
-  - Maintaining Docs: maintaining_docs.md
+  - Home:
+      - Home: index.md
+      - AI Strategy: ai_strategy.md
+      - Contributing: contributing.md
+      - Maintaining Docs: maintaining_docs.md
   - AI:
       - Master Spec: ai/master_spec.md
       - Context:
@@ -40,6 +41,8 @@ nav:
           - Security Reviewer: ai/personas/security_reviewer.md
           - Designer: ai/personas/designer.md
           - DevOps: ai/personas/devops.md
+          - Product Owner: ai/personas/product_owner.md
+          - Architect: ai/personas/architect.md
 markdown_extensions:
   - admonition
   - tables
