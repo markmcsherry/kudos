@@ -17,6 +17,25 @@ Define the high-level architecture so implementation work stays aligned with sys
 - Reason for selection:
 - Known tradeoffs:
 
+## Technology Architecture
+- Frontend:
+  - React (basic React application architecture)
+  - Material UI for component system and UI consistency (as defined in `design_spec.md`)
+- Backend:
+  - Node.js microservice architecture
+  - Express for HTTP service framework
+  - Passport for authentication strategy integration
+  - Dotenv for environment-based configuration management
+- Data and API:
+  - PostgreSQL as the primary relational database
+  - Hasura as a data access and GraphQL acceleration layer over PostgreSQL
+  - GraphQL as the application interface layer over backend/domain data
+- Edge and Routing (optional):
+  - Traefik or NGINX as an optional ingress/reverse-proxy layer for routing, TLS termination, and edge concerns
+- Deployment and Runtime:
+  - All built code runs in Docker containers
+  - Containerized services should be deployable consistently across environments
+
 ## Components and Responsibilities
 | Component | Responsibility | Inputs | Outputs | Owner |
 | --- | --- | --- | --- | --- |
