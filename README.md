@@ -16,6 +16,37 @@ At a product level, this can support broader gamification of tasks that need to 
 - Requirements and design direction: review [`docs/ai/specs/requirements.md`](docs/ai/specs/requirements.md) and [`docs/ai/specs/design_spec.md`](docs/ai/specs/design_spec.md).
 - AI-assisted workflows: use [`docs/ai_strategy.md`](docs/ai_strategy.md), then assemble task context from [`docs/ai/master_spec.md`](docs/ai/master_spec.md).
 
+## Runtime Prerequisites
+- Node.js 20.x LTS
+- npm 10+
+- Docker (for containerized run)
+
+## Local Development
+- Install dependencies:
+  - `npm install`
+- Run client and server in watch mode:
+  - `npm run dev`
+- Build frontend assets:
+  - `npm run build`
+- Start Node server (serves `client/dist`):
+  - `npm run start`
+
+By default, the server listens on `http://localhost:3000`.
+
+## Quality Checks
+- Lint all workspaces:
+  - `npm run lint`
+- Run tests across client and server:
+  - `npm run test`
+
+## Docker
+- Build image:
+  - `docker build -t kudos:local .`
+- Run container:
+  - `docker run --rm -p 3000:3000 kudos:local`
+
+Open `http://localhost:3000` to view the landing page.
+
 ## Contributing
 - Follow [`docs/contributing.md`](docs/contributing.md) for contribution expectations and workflow.
 

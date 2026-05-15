@@ -37,4 +37,7 @@ Map requirements to design and tests.
 
 | Requirement ID | Design Section | Test Case ID |
 | --- | --- | --- |
-| FR-001 | | |
+| FR-001 | UI Framework and Component Strategy | TC-I8-001, TC-I8-002 |
+| FR-002 | Responsive Experience Standards | TC-I8-003 |
+| FR-003 | Theming and Branding | TC-I8-004 |
+| NFR-002 | Accessibility Baseline | TC-I8-005 |
