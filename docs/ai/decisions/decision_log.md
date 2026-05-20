@@ -140,3 +140,31 @@ Use this file to capture meaningful technical decisions in lightweight ADR forma
 - Define migration trigger criteria (for example: number of domains/endpoints, duplication pain, cross-client API needs).
 - Add API contract documentation so current REST behavior is preserved during GraphQL migration.
 - Plan staged migration (auth first vs domain-by-domain) with compatibility strategy.
+
+### DEC-0010: Feature toggle strategy for incremental and optional features
+- Date: 2026-05-20
+- Status: Accepted
+- Context: Upcoming work includes incremental delivery of admin, certificate, theming, and other optional capabilities. The project needs a simple way to hide incomplete work, enable short-term development slices, and preserve a path to longer-term per-organization or per-user optional features without introducing a full feature-flag service too early.
+- Decision: Use a lightweight, centralized feature-toggle layer first, backed by environment/config values. Short-term development toggles should be coarse-grained, default off for incomplete work, and removed after the feature is fully released. Long-term optional-product toggles should use the same naming and access pattern, but may later move to database-backed or managed flag storage when rollout needs require per-organization, per-user, staged, or audited enablement.
+- Consequences:
+  - Feature code can merge incrementally without exposing unfinished screens or routes by default.
+  - UI and API behavior stay aligned when both read from named feature flags rather than scattered environment checks.
+  - The project avoids early dependency on a remote flag platform while preserving a migration path.
+  - Each long-lived optional feature needs ownership, default behavior, and test coverage for enabled and disabled states.
+- Alternatives considered:
+  - Always ship features directly with no flags.
+  - Use a managed feature-flag service immediately.
+  - Keep ad hoc environment checks inside individual components or routes.
+
+#### Implementation Constraints
+- Keep flag names centralized and stable, for example `adminConsole`, `certificates`, `darkModeToggle`, or matching `FEATURE_*` environment names.
+- Client-visible flags may control navigation, menus, and non-sensitive UI affordances, but must not be treated as authorization.
+- Server-side routes and data access must enforce permissions independently of any client-side flag.
+- Default incomplete or optional features to disabled unless a local development or deployment config explicitly enables them.
+- Remove short-term release flags after the rollout is complete; keep only product-level optional flags that represent an ongoing business configuration.
+- Document any new long-lived flag in the relevant requirement, epic, or implementation docs so reviewers know its default and intended owner.
+
+#### Follow-up TODO
+- Define the first centralized flag module when the next feature-gated implementation begins.
+- Add tests for both enabled and disabled states for any route, menu item, or user flow guarded by a long-lived flag.
+- Revisit this decision if rollout needs require per-organization defaults, audit history, scheduled activation, or non-developer flag management.
