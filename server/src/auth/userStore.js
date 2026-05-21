@@ -12,7 +12,8 @@ function mapUserRow(row) {
     firstName: row.first_name,
     lastName: row.last_name,
     email: row.email,
-    isAdmin: row.is_admin
+    isAdmin: row.is_admin,
+    status: row.status || "active"
   };
 }
 
@@ -36,7 +37,7 @@ export function createUser({ firstName, lastName, email, password }) {
         `
           INSERT INTO users (first_name, last_name, email, password_hash)
           VALUES ($1, $2, $3, $4)
-          RETURNING id, first_name, last_name, email, is_admin
+          RETURNING id, first_name, last_name, email, is_admin, status
         `,
         [firstName, lastName, normalizedEmail, passwordHash]
       );
@@ -55,7 +56,7 @@ export function findUserByEmail(email) {
   return withClient(async (client) => {
     const result = await client.query(
       `
-        SELECT id, first_name, last_name, email, password_hash, is_admin
+        SELECT id, first_name, last_name, email, password_hash, is_admin, status
         FROM users
         WHERE email = $1
         LIMIT 1
@@ -80,7 +81,7 @@ export function findUserById(id) {
   return withClient(async (client) => {
     const result = await client.query(
       `
-        SELECT id, first_name, last_name, email, is_admin
+        SELECT id, first_name, last_name, email, is_admin, status
         FROM users
         WHERE id = $1
         LIMIT 1
@@ -118,7 +119,7 @@ export async function createOrPromoteAdmin({
           UPDATE users
           SET is_admin = TRUE, updated_at = NOW()
           WHERE id = $1
-          RETURNING id, first_name, last_name, email, is_admin
+          RETURNING id, first_name, last_name, email, is_admin, status
         `,
         [created.id]
       );
@@ -149,7 +150,7 @@ export async function createOrPromoteAdmin({
         UPDATE users
         SET is_admin = TRUE, updated_at = NOW()
         WHERE id = $1
-        RETURNING id, first_name, last_name, email, is_admin
+        RETURNING id, first_name, last_name, email, is_admin, status
       `,
       [existing.id]
     );
@@ -174,6 +175,7 @@ export async function validateCredentials(email, password) {
     firstName: user.firstName,
     lastName: user.lastName,
     email: user.email,
-    isAdmin: user.isAdmin
+    isAdmin: user.isAdmin,
+    status: user.status
   };
 }
