@@ -6,6 +6,16 @@ function hashPassword(password, salt = crypto.randomBytes(16).toString("hex")) {
   return `${salt}:${derived}`;
 }
 
+function mapUserRow(row) {
+  return {
+    id: row.id,
+    firstName: row.first_name,
+    lastName: row.last_name,
+    email: row.email,
+    isAdmin: row.is_admin
+  };
+}
+
 function verifyPassword(password, storedHash) {
   const [salt, hash] = storedHash.split(":");
   const derived = crypto.scryptSync(password, salt, 64).toString("hex");
@@ -26,17 +36,11 @@ export function createUser({ firstName, lastName, email, password }) {
         `
           INSERT INTO users (first_name, last_name, email, password_hash)
           VALUES ($1, $2, $3, $4)
-          RETURNING id, first_name, last_name, email
+          RETURNING id, first_name, last_name, email, is_admin
         `,
         [firstName, lastName, normalizedEmail, passwordHash]
       );
-      const row = result.rows[0];
-      return {
-        id: row.id,
-        firstName: row.first_name,
-        lastName: row.last_name,
-        email: row.email
-      };
+      return mapUserRow(result.rows[0]);
     } catch (error) {
       if (error.code === "23505") {
         return null;
@@ -51,7 +55,7 @@ export function findUserByEmail(email) {
   return withClient(async (client) => {
     const result = await client.query(
       `
-        SELECT id, first_name, last_name, email, password_hash
+        SELECT id, first_name, last_name, email, password_hash, is_admin
         FROM users
         WHERE email = $1
         LIMIT 1
@@ -65,10 +69,7 @@ export function findUserByEmail(email) {
 
     const row = result.rows[0];
     return {
-      id: row.id,
-      firstName: row.first_name,
-      lastName: row.last_name,
-      email: row.email,
+      ...mapUserRow(row),
       passwordHash: row.password_hash
     };
   });
@@ -79,7 +80,7 @@ export function findUserById(id) {
   return withClient(async (client) => {
     const result = await client.query(
       `
-        SELECT id, first_name, last_name, email
+        SELECT id, first_name, last_name, email, is_admin
         FROM users
         WHERE id = $1
         LIMIT 1
@@ -91,12 +92,71 @@ export function findUserById(id) {
       return null;
     }
 
-    const row = result.rows[0];
+    return mapUserRow(result.rows[0]);
+  });
+}
+
+export async function createOrPromoteAdmin({
+  firstName,
+  lastName,
+  email,
+  password,
+  allowPromoteExisting = false
+}) {
+  const normalizedEmail = email.trim().toLowerCase();
+  const existing = await findUserByEmail(normalizedEmail);
+
+  if (!existing) {
+    const created = await createUser({ firstName, lastName, email: normalizedEmail, password });
+    if (!created) {
+      throw new Error("Unable to create admin user.");
+    }
+
+    return withClient(async (client) => {
+      const result = await client.query(
+        `
+          UPDATE users
+          SET is_admin = TRUE, updated_at = NOW()
+          WHERE id = $1
+          RETURNING id, first_name, last_name, email, is_admin
+        `,
+        [created.id]
+      );
+
+      return {
+        action: "created",
+        user: mapUserRow(result.rows[0])
+      };
+    });
+  }
+
+  if (existing.isAdmin) {
     return {
-      id: row.id,
-      firstName: row.first_name,
-      lastName: row.last_name,
-      email: row.email
+      action: "noop",
+      user: existing
+    };
+  }
+
+  if (!allowPromoteExisting) {
+    throw new Error(
+      "Existing user is not admin. Set ADMIN_PROMOTE_EXISTING=true to explicitly promote this user."
+    );
+  }
+
+  return withClient(async (client) => {
+    const result = await client.query(
+      `
+        UPDATE users
+        SET is_admin = TRUE, updated_at = NOW()
+        WHERE id = $1
+        RETURNING id, first_name, last_name, email, is_admin
+      `,
+      [existing.id]
+    );
+
+    return {
+      action: "promoted",
+      user: mapUserRow(result.rows[0])
     };
   });
 }
@@ -109,5 +169,11 @@ export async function validateCredentials(email, password) {
   if (!verifyPassword(password, user.passwordHash)) {
     return null;
   }
-  return { id: user.id, firstName: user.firstName, lastName: user.lastName, email: user.email };
+  return {
+    id: user.id,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    email: user.email,
+    isAdmin: user.isAdmin
+  };
 }

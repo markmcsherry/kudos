@@ -36,7 +36,7 @@ function RegisterPage() {
         return;
       }
       setSuccess("Account created. You can now log in.");
-      setTimeout(() => navigate("/login"), 500);
+      setTimeout(() => navigate("/kudos/login"), 500);
     } catch {
       setError("Unable to register right now.");
     } finally {
@@ -87,7 +87,7 @@ function RegisterPage() {
                 {loading ? "Creating account..." : "Create account"}
               </Button>
               <Typography variant="body2">
-                Already have an account? <Link to="/login">Login</Link>
+                Already have an account? <Link to="/kudos/login">Login</Link>
               </Typography>
             </Stack>
           </Paper>

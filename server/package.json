@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "db:migrate": "node db/scripts/migrate.js",
     "db:seed": "node db/scripts/seed.js",
-    "db:reset": "node db/scripts/reset.js"
+    "db:reset": "node db/scripts/reset.js",
+    "db:bootstrap-admin": "node db/scripts/bootstrap-admin.js"
   },
   "dependencies": {
     "express-session": "^1.18.1",

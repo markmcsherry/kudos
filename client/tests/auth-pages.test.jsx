@@ -10,7 +10,7 @@ import { renderWithProviders } from "./test-utils";
 
 describe("Auth pages", () => {
   it("renders login fields", () => {
-    renderWithProviders(<LoginPage />, { route: "/login" });
+    renderWithProviders(<LoginPage />, { route: "/kudos/login" });
     expect(screen.getByLabelText(/Email/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Password/i)).toBeInTheDocument();
     const banner = screen.getByRole("banner");
@@ -19,7 +19,7 @@ describe("Auth pages", () => {
   });
 
   it("renders register fields", () => {
-    renderWithProviders(<RegisterPage />, { route: "/register" });
+    renderWithProviders(<RegisterPage />, { route: "/kudos/register" });
     expect(screen.getByLabelText(/First Name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Second Name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Email/i)).toBeInTheDocument();
@@ -39,17 +39,17 @@ describe("Auth pages", () => {
 
   it("redirects unauthenticated dashboard access to login", () => {
     renderWithProviders(
-      <MemoryRouter initialEntries={["/dashboard"]}>
+      <MemoryRouter initialEntries={["/kudos/dashboard"]}>
         <Routes>
           <Route
-            path="/dashboard"
+            path="/kudos/dashboard"
             element={
               <ProtectedRoute>
                 <DashboardPage />
               </ProtectedRoute>
             }
           />
-          <Route path="/login" element={<div>Login Destination</div>} />
+          <Route path="/kudos/login" element={<div>Login Destination</div>} />
         </Routes>
       </MemoryRouter>,
       { withRouter: false }

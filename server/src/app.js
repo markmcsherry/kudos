@@ -3,8 +3,11 @@ import session from "express-session";
 import path from "path";
 import { fileURLToPath } from "url";
 import { checkDatabaseHealth } from "../db/client.js";
+import adminRoutes from "./admin/routes.js";
+import { requireAdmin } from "./auth/adminPolicy.js";
 import passport from "./auth/passport.js";
 import authRoutes from "./auth/routes.js";
+import { enforceSessionPolicy } from "./auth/sessionPolicy.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -28,8 +31,10 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(enforceSessionPolicy);
 
 app.use("/auth", authRoutes);
+app.use("/api/admin", requireAdmin, adminRoutes);
 
 app.get("/health", async (_req, res) => {
   res.json({ status: "ok" });

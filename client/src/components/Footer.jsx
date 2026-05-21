@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
+import { Link as RouterLink } from "react-router-dom";
 
 function Footer() {
   return (
@@ -23,10 +24,10 @@ function Footer() {
         Build recognition. Share gratitude.
       </Typography>
       <Box sx={{ display: "flex", gap: 2 }}>
-        <Link href="#" underline="hover">
+        <Link component={RouterLink} to="/kudos" underline="hover">
           Home
         </Link>
-        <Link href="#" underline="hover">
+        <Link component={RouterLink} to="/kudos/about" underline="hover">
           About
         </Link>
       </Box>
