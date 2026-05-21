@@ -5,6 +5,7 @@ import AdminRoute from "./components/AdminRoute";
 import AdminShell from "./components/AdminShell";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminFeatureTogglesPage from "./pages/AdminFeatureTogglesPage";
+import AdminAuditLogPage from "./pages/AdminAuditLogPage";
 import AdminJobsPage from "./pages/AdminJobsPage";
 import AdminLandingPage from "./pages/AdminLandingPage";
 import AdminTagsPage from "./pages/AdminTagsPage";
@@ -41,6 +42,7 @@ function App() {
           <Route path="tags" element={<AdminTagsPage />} />
           <Route path="jobs" element={<AdminJobsPage />} />
           <Route path="feature-toggles" element={<AdminFeatureTogglesPage />} />
+          <Route path="audit-log" element={<AdminAuditLogPage />} />
         </Route>
         <Route
           path="/kudos/dashboard"

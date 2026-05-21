@@ -46,6 +46,12 @@ const moduleTiles = [
     description: "Feature toggle governance and controls.",
     actionLabel: "Open Feature Toggles",
     actionTo: ADMIN_ROUTES.featureToggles
+  },
+  {
+    title: "Audit Logs",
+    description: "Investigate security and operational events.",
+    actionLabel: "Open Audit Logs",
+    actionTo: ADMIN_ROUTES.auditLog
   }
 ];
 

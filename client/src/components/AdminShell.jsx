@@ -14,7 +14,8 @@ const navItems = [
   { label: "Users", path: ADMIN_ROUTES.users },
   { label: "Tags", path: ADMIN_ROUTES.tags },
   { label: "Jobs", path: ADMIN_ROUTES.jobs },
-  { label: "Feature Toggles", path: ADMIN_ROUTES.featureToggles }
+  { label: "Feature Toggles", path: ADMIN_ROUTES.featureToggles },
+  { label: "Audit Logs", path: ADMIN_ROUTES.auditLog }
 ];
 
 function AdminShell() {
