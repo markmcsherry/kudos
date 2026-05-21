@@ -35,7 +35,8 @@ describe("Admin route protection", () => {
       [ADMIN_ROUTES.users, "User and Admin Management"],
       [ADMIN_ROUTES.tags, "Tag Management"],
       [ADMIN_ROUTES.jobs, "Jobs and Maintenance"],
-      [ADMIN_ROUTES.featureToggles, "Feature Toggle Management"]
+      [ADMIN_ROUTES.featureToggles, "Feature Toggle Management"],
+      [ADMIN_ROUTES.auditLog, "Audit Logs"]
     ];
 
     for (const [route, heading] of routesToHeadings) {
