@@ -14,15 +14,15 @@ function Header() {
   const location = useLocation();
   const initial = user?.firstName ? user.firstName.charAt(0).toUpperCase() : "U";
   const [logoVisible, setLogoVisible] = React.useState(true);
-  const onLoginPage = location.pathname === "/login";
-  const onRegisterPage = location.pathname === "/register";
+  const onLoginPage = location.pathname === "/kudos/login";
+  const onRegisterPage = location.pathname === "/kudos/register";
 
   return (
     <AppBar component="header" position="static" elevation={0} color="transparent">
       <Toolbar sx={{ justifyContent: "space-between", py: 1 }}>
         <Box
           component={Link}
-          to="/"
+          to="/kudos"
           sx={{
             display: "inline-flex",
             alignItems: "center",
@@ -51,9 +51,14 @@ function Header() {
         </Box>
         {isAuthenticated ? (
           <Box sx={{ display: "flex", gap: 1.5, alignItems: "center" }}>
-            <Button variant="outlined" component={Link} to="/dashboard">
+            <Button variant="outlined" component={Link} to="/kudos/dashboard">
               Dashboard
             </Button>
+            {user?.isAdmin ? (
+              <Button variant="outlined" component={Link} to="/kudos/admin">
+                Admin
+              </Button>
+            ) : null}
             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }} aria-label="Profile">
               <Avatar sx={{ width: 30, height: 30 }}>{initial}</Avatar>
               <Typography variant="body2" color="text.secondary">
@@ -64,12 +69,12 @@ function Header() {
         ) : (
           <Box sx={{ display: "flex", gap: 1 }}>
             {!onRegisterPage ? (
-              <Button variant="outlined" aria-label="Register" component={Link} to="/register">
+              <Button variant="outlined" aria-label="Register" component={Link} to="/kudos/register">
                 Register
               </Button>
             ) : null}
             {!onLoginPage ? (
-              <Button variant="contained" aria-label="Login" component={Link} to="/login">
+              <Button variant="contained" aria-label="Login" component={Link} to="/kudos/login">
                 Login
               </Button>
             ) : null}

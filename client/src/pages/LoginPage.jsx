@@ -37,7 +37,7 @@ function LoginPage() {
         return;
       }
       setUser(payload.user);
-      navigate("/dashboard");
+      navigate(payload.user?.isAdmin ? "/kudos/admin" : "/kudos/dashboard");
     } catch {
       setError("Unable to login right now.");
     } finally {
@@ -75,7 +75,7 @@ function LoginPage() {
               </Button>
               <Box>
                 <Typography variant="body2">
-                  Need an account? <Link to="/register">Register</Link>
+                  Need an account? <Link to="/kudos/register">Register</Link>
                 </Typography>
               </Box>
             </Stack>

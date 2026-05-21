@@ -140,3 +140,26 @@ Use this file to capture meaningful technical decisions in lightweight ADR forma
 - Define migration trigger criteria (for example: number of domains/endpoints, duplication pain, cross-client API needs).
 - Add API contract documentation so current REST behavior is preserved during GraphQL migration.
 - Plan staged migration (auth first vs domain-by-domain) with compatibility strategy.
+
+### DEC-0010: Feature toggle strategy for development and long-term optional features
+- Date: 2026-05-16
+- Status: Proposed
+- Context: The team needs a consistent way to release work incrementally, test incomplete capabilities safely, and manage optional features over time without carrying uncontrolled branching logic.
+- Decision: Adopt a centralized feature toggle strategy with environment-aware defaults and explicit toggle categories:
+  - **Release toggles (short-lived):** temporary flags used to merge incomplete work safely and remove after rollout.
+  - **Experiment toggles (time-boxed):** flags used for A/B or discovery work with a predefined end date.
+  - **Ops toggles (operational):** kill switches or guardrails for runtime risk control.
+  - **Entitlement toggles (long-lived):** flags used to enable optional features by plan/license.
+  - Implement toggles through a single server-side toggle service/module, expose a typed contract to clients, and store current flag values in config + persistent backing store for non-local environments.
+  - Require owner, purpose, creation date, and planned removal/review date metadata for every new flag.
+- Consequences: Safer progressive delivery and clearer optional-feature governance; additional engineering overhead is required to maintain flag lifecycle hygiene, observability, and periodic cleanup.
+- Alternatives considered:
+  - Environment-only branching via `.env` variables without centralized ownership/lifecycle metadata.
+  - No toggle strategy (feature branches only until full completion).
+  - Third-party SaaS flag platform immediately (deferred until scale/operational needs justify).
+
+#### Follow-up TODO
+- Define the initial toggle registry format (for example YAML/JSON or database table) and naming convention.
+- Add guardrails in CI/linting to detect stale release/experiment toggles past review date.
+- Decide whether entitlement toggles are enforced server-side only or also reflected in client capability payloads.
+- Create a licensing decision (new DEC) to define plan tiers, entitlement source of truth, and billing/commercial constraints for optional features.

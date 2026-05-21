@@ -46,7 +46,7 @@ function DashboardPage() {
   async function logout() {
     await fetch("/auth/logout", { method: "POST", credentials: "include" });
     setUser(null);
-    navigate("/login");
+    navigate("/kudos/login");
   }
 
   return (
