@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440" height="1024" viewBox="0 0 1440 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgc" x1="0" y1="0" x2="1440" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F3F7FB"/>
+      <stop offset="1" stop-color="#E9F0F7"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1440" height="1024" fill="url(#bgc)"/>
+
+  <rect x="56" y="28" width="1328" height="80" rx="20" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="96" y="76" fill="#1E293B" font-family="Arial, sans-serif" font-size="20" font-weight="700">Kudos</text>
+
+  <rect x="566" y="46" width="106" height="44" rx="12" fill="#E2E8F0"/>
+  <text x="590" y="73" fill="#334155" font-family="Arial, sans-serif" font-size="14" font-weight="700">Dashboard</text>
+
+  <rect x="686" y="46" width="96" height="44" rx="12" fill="#0F766E"/>
+  <text x="717" y="73" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" font-weight="700">Admin</text>
+
+  <rect x="1218" y="42" width="148" height="52" rx="14" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <circle cx="1246" cy="68" r="14" fill="#334155"/>
+  <text x="1239" y="73" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="10" font-weight="700">MM</text>
+  <text x="1268" y="73" fill="#1E293B" font-family="Arial, sans-serif" font-size="13" font-weight="700">Mark</text>
+
+  <rect x="1148" y="108" width="236" height="274" rx="16" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="1170" y="136" fill="#64748B" font-family="Arial, sans-serif" font-size="11" font-weight="700">PROFILE MENU WITH ICONS</text>
+
+  <rect x="1164" y="152" width="204" height="42" rx="10" fill="#F8FAFC"/>
+  <circle cx="1184" cy="173" r="8" stroke="#475569" stroke-width="1.8" fill="none"/>
+  <circle cx="1184" cy="173" r="3" fill="#475569"/>
+  <text x="1200" y="178" fill="#1E293B" font-family="Arial, sans-serif" font-size="13" font-weight="600">Profile settings</text>
+
+  <rect x="1164" y="200" width="204" height="42" rx="10" fill="#F8FAFC"/>
+  <path d="M1178 220C1178 215.581 1181.58 212 1186 212V212C1182.69 212 1180 209.314 1180 206V206C1180 209.314 1177.31 212 1174 212V212C1178.42 212 1182 215.581 1182 220V220" stroke="#475569" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <circle cx="1186" cy="220" r="3" fill="#475569"/>
+  <text x="1200" y="226" fill="#1E293B" font-family="Arial, sans-serif" font-size="13" font-weight="600">Theme toggle</text>
+
+  <line x1="1164" y1="252" x2="1368" y2="252" stroke="#E2E8F0"/>
+
+  <rect x="1164" y="266" width="204" height="42" rx="10" fill="#FEF2F2"/>
+  <path d="M1176 287H1188M1188 287L1184 283M1188 287L1184 291" stroke="#991B1B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1200" y="292" fill="#991B1B" font-family="Arial, sans-serif" font-size="13" font-weight="700">Logout</text>
+
+  <rect x="96" y="152" width="1020" height="184" rx="20" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="124" y="192" fill="#0F172A" font-family="Arial, sans-serif" font-size="24" font-weight="700">Variant C - Profile Menu Icons</text>
+  <text x="124" y="224" fill="#475569" font-family="Arial, sans-serif" font-size="14">Adds subtle icons for each profile menu item while retaining clean visual hierarchy.</text>
+  <text x="124" y="248" fill="#475569" font-family="Arial, sans-serif" font-size="14">Keeps divider before logout and soft danger color for safer destructive-action recognition.</text>
+  <text x="124" y="272" fill="#475569" font-family="Arial, sans-serif" font-size="14">Good fit for #44 when menu starts with placeholders and evolves to full actions.</text>
+
+  <rect x="96" y="360" width="628" height="252" rx="20" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="124" y="400" fill="#0F172A" font-family="Arial, sans-serif" font-size="18" font-weight="700">Icon Guidance</text>
+  <text x="124" y="430" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Use one icon style set only (stroke-based or filled, not mixed).</text>
+  <text x="124" y="454" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Keep icon size around 16-18px for menu density.</text>
+  <text x="124" y="478" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Always keep labels (no icon-only actions in this menu).</text>
+  <text x="124" y="502" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Keep logout icon + label in danger color only for that row.</text>
+
+  <rect x="748" y="360" width="632" height="252" rx="20" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="776" y="400" fill="#0F172A" font-family="Arial, sans-serif" font-size="18" font-weight="700">Accessibility Notes</text>
+  <text x="776" y="430" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Keyboard navigation: Up/Down arrows + Enter/Space activation.</text>
+  <text x="776" y="454" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Escape and outside-click close menu.</text>
+  <text x="776" y="478" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Maintain visible focus ring on each item.</text>
+  <text x="776" y="502" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Touch target minimum 40px height retained.</text>
+
+  <rect x="96" y="636" width="1284" height="304" rx="20" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="124" y="676" fill="#0F172A" font-family="Arial, sans-serif" font-size="18" font-weight="700">Figma Import Notes</text>
+  <text x="124" y="704" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Import this file directly into Figma as a reviewable default direction.</text>
+  <text x="124" y="728" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Compare with Variant B and choose preferred style before implementation.</text>
+  <text x="124" y="752" fill="#475569" font-family="Arial, sans-serif" font-size="14">- If approved, map to Header/Profile components and #44 acceptance criteria.</text>
+  <text x="124" y="820" fill="#94A3B8" font-family="Arial, sans-serif" font-size="12">File: docs/design/header-profile-default-variant-c-with-icons.svg</text>
+</svg>

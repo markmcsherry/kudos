@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440" height="1024" viewBox="0 0 1440 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="1024" fill="#F5F7FA"/>
+  <rect x="48" y="32" width="1344" height="72" rx="16" fill="#FFFFFF" stroke="#D6DCE5"/>
+  <rect x="76" y="54" width="132" height="28" rx="8" fill="#1A3A5F"/>
+  <text x="92" y="73" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" font-weight="700">KUDOS LOGO</text>
+
+  <rect x="540" y="50" width="110" height="36" rx="10" fill="#EEF3FA" stroke="#CAD5E6"/>
+  <text x="573" y="72" fill="#243447" font-family="Arial, sans-serif" font-size="13" font-weight="600">Dashboard</text>
+
+  <rect x="666" y="50" width="92" height="36" rx="10" fill="#1F7A8C"/>
+  <text x="694" y="72" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="13" font-weight="700">Admin</text>
+
+  <circle cx="1312" cy="68" r="18" fill="#375A7F"/>
+  <text x="1304" y="73" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="12" font-weight="700">MM</text>
+  <text x="1240" y="73" fill="#2B3B4D" font-family="Arial, sans-serif" font-size="13" font-weight="600">Mark</text>
+
+  <rect x="1158" y="98" width="222" height="250" rx="14" fill="#FFFFFF" stroke="#D6DCE5"/>
+  <text x="1180" y="126" fill="#607286" font-family="Arial, sans-serif" font-size="11" font-weight="600">PROFILE MENU (OPEN)</text>
+
+  <rect x="1174" y="142" width="190" height="40" rx="10" fill="#F7FAFC" stroke="#E1E8F0"/>
+  <text x="1190" y="166" fill="#243447" font-family="Arial, sans-serif" font-size="13" font-weight="600">Profile Settings</text>
+
+  <rect x="1174" y="190" width="190" height="40" rx="10" fill="#F7FAFC" stroke="#E1E8F0"/>
+  <text x="1190" y="214" fill="#243447" font-family="Arial, sans-serif" font-size="13" font-weight="600">Theme: Light / Dark</text>
+
+  <rect x="1174" y="238" width="190" height="40" rx="10" fill="#FFF5F5" stroke="#F3C0C0"/>
+  <text x="1190" y="262" fill="#9D2E2E" font-family="Arial, sans-serif" font-size="13" font-weight="700">Logout</text>
+
+  <rect x="96" y="154" width="820" height="170" rx="16" fill="#FFFFFF" stroke="#D6DCE5"/>
+  <text x="120" y="188" fill="#1B2E44" font-family="Arial, sans-serif" font-size="22" font-weight="700">Header + Profile Revamp Baseline</text>
+  <text x="120" y="218" fill="#516579" font-family="Arial, sans-serif" font-size="14">- Desktop frame for #43 / #44 default direction</text>
+  <text x="120" y="242" fill="#516579" font-family="Arial, sans-serif" font-size="14">- Primary nav centered (Dashboard + Admin)</text>
+  <text x="120" y="266" fill="#516579" font-family="Arial, sans-serif" font-size="14">- Avatar trigger on right with anchored profile menu</text>
+  <text x="120" y="290" fill="#516579" font-family="Arial, sans-serif" font-size="14">- Menu includes Settings, Theme toggle, Logout</text>
+
+  <rect x="96" y="352" width="616" height="228" rx="16" fill="#FFFFFF" stroke="#D6DCE5"/>
+  <text x="120" y="386" fill="#1B2E44" font-family="Arial, sans-serif" font-size="18" font-weight="700">Mobile/Tablet Notes</text>
+  <text x="120" y="414" fill="#516579" font-family="Arial, sans-serif" font-size="14">- Collapse primary nav to icon/menu below 960px</text>
+  <text x="120" y="438" fill="#516579" font-family="Arial, sans-serif" font-size="14">- Keep avatar always visible for account access</text>
+  <text x="120" y="462" fill="#516579" font-family="Arial, sans-serif" font-size="14">- Ensure tap targets >= 40px and keyboard focus styles</text>
+  <text x="120" y="486" fill="#516579" font-family="Arial, sans-serif" font-size="14">- Preserve explicit routes:</text>
+  <text x="140" y="510" fill="#2B3B4D" font-family="Courier New, monospace" font-size="13">/kudos/dashboard, /kudos/admin, /kudos/admin/*</text>
+
+  <rect x="730" y="352" width="650" height="228" rx="16" fill="#FFFFFF" stroke="#D6DCE5"/>
+  <text x="754" y="386" fill="#1B2E44" font-family="Arial, sans-serif" font-size="18" font-weight="700">Interaction Rules</text>
+  <text x="754" y="414" fill="#516579" font-family="Arial, sans-serif" font-size="14">1. Clicking avatar toggles menu open/closed.</text>
+  <text x="754" y="438" fill="#516579" font-family="Arial, sans-serif" font-size="14">2. Escape key and outside-click close menu.</text>
+  <text x="754" y="462" fill="#516579" font-family="Arial, sans-serif" font-size="14">3. Arrow keys move between menu items.</text>
+  <text x="754" y="486" fill="#516579" font-family="Arial, sans-serif" font-size="14">4. Enter/Space activates selected menu action.</text>
+  <text x="754" y="510" fill="#516579" font-family="Arial, sans-serif" font-size="14">5. Logout action remains prominent and visually distinct.</text>
+
+  <rect x="96" y="608" width="1284" height="332" rx="16" fill="#FFFFFF" stroke="#D6DCE5"/>
+  <text x="120" y="642" fill="#1B2E44" font-family="Arial, sans-serif" font-size="18" font-weight="700">Component Mapping (for implementation)</text>
+  <text x="120" y="670" fill="#516579" font-family="Arial, sans-serif" font-size="14">- Header container: brand left, nav center, user profile trigger right</text>
+  <text x="120" y="694" fill="#516579" font-family="Arial, sans-serif" font-size="14">- Profile menu: settings, theme toggle, logout (with divider before logout)</text>
+  <text x="120" y="718" fill="#516579" font-family="Arial, sans-serif" font-size="14">- Admin visibility rule: show Admin tab only when user.isAdmin = true</text>
+  <text x="120" y="742" fill="#516579" font-family="Arial, sans-serif" font-size="14">- Route behavior: authenticated users land on dashboard/admin based on role</text>
+  <text x="120" y="766" fill="#516579" font-family="Arial, sans-serif" font-size="14">- Accessibility: menu has proper aria attributes and focus management</text>
+  <text x="120" y="804" fill="#8A98A8" font-family="Arial, sans-serif" font-size="12">Import into Figma: File -> Place image, or drag this SVG directly onto canvas.</text>
+  <text x="120" y="824" fill="#8A98A8" font-family="Arial, sans-serif" font-size="12">This is a default baseline design artifact for issue #43/#44 planning.</text>
+</svg>

@@ -2,7 +2,7 @@
 name: Documentation Task
 about: Track documentation work, including decision-log follow-ups
 title: "[Docs] <short title>"
-labels: ["type:documentation"]
+labels: ["status:new", "type:documentation"]
 assignees: []
 ---
 

@@ -4,6 +4,7 @@ import { ADMIN_ROUTES } from "./admin/routes";
 import AdminRoute from "./components/AdminRoute";
 import AdminShell from "./components/AdminShell";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminAccessPage from "./pages/AdminAccessPage";
 import AdminFeatureTogglesPage from "./pages/AdminFeatureTogglesPage";
 import AdminAuditLogPage from "./pages/AdminAuditLogPage";
 import AdminJobsPage from "./pages/AdminJobsPage";
@@ -39,6 +40,7 @@ function App() {
         >
           <Route index element={<AdminLandingPage />} />
           <Route path="users" element={<AdminUsersPage />} />
+          <Route path="admin-access" element={<AdminAccessPage />} />
           <Route path="tags" element={<AdminTagsPage />} />
           <Route path="jobs" element={<AdminJobsPage />} />
           <Route path="feature-toggles" element={<AdminFeatureTogglesPage />} />

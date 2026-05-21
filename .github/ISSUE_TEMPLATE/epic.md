@@ -2,7 +2,7 @@
 name: Epic
 about: Track a large initiative made up of multiple related stories/tasks
 title: "[Epic] "
-labels: ["type:epic"]
+labels: ["status:new", "type:epic"]
 assignees: []
 ---
 

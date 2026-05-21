@@ -32,7 +32,8 @@ describe("Admin route protection", () => {
 
   it("resolves each admin sub-route for admin users", () => {
     const routesToHeadings = [
-      [ADMIN_ROUTES.users, "User and Admin Management"],
+      [ADMIN_ROUTES.users, "User Management"],
+      [ADMIN_ROUTES.adminAccess, "Admin Access Management"],
       [ADMIN_ROUTES.tags, "Tag Management"],
       [ADMIN_ROUTES.jobs, "Jobs and Maintenance"],
       [ADMIN_ROUTES.featureToggles, "Feature Toggle Management"],
