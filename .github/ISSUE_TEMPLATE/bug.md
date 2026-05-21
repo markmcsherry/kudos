@@ -2,7 +2,7 @@
 name: Bug Report
 about: Report a defect with expected vs actual behavior
 title: "[Bug] "
-labels: ["type:bug"]
+labels: ["status:new", "type:bug"]
 assignees: []
 ---
 

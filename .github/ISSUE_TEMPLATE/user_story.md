@@ -2,7 +2,7 @@
 name: User Story
 about: Capture a user story with requirements and acceptance criteria
 title: "[User Story] "
-labels: ["type:user-story"]
+labels: ["status:new", "type:user-story"]
 assignees: []
 ---
 

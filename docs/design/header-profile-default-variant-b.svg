@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440" height="1024" viewBox="0 0 1440 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1440" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F0F4F8"/>
+      <stop offset="1" stop-color="#E6EEF5"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1440" height="1024" fill="url(#bg)"/>
+
+  <rect x="56" y="28" width="1328" height="80" rx="20" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="96" y="76" fill="#1E293B" font-family="Arial, sans-serif" font-size="20" font-weight="700">Kudos</text>
+
+  <rect x="566" y="46" width="106" height="44" rx="12" fill="#E2E8F0"/>
+  <text x="590" y="73" fill="#334155" font-family="Arial, sans-serif" font-size="14" font-weight="700">Dashboard</text>
+
+  <rect x="686" y="46" width="96" height="44" rx="12" fill="#0F766E"/>
+  <text x="717" y="73" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" font-weight="700">Admin</text>
+
+  <rect x="1218" y="42" width="148" height="52" rx="14" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <circle cx="1246" cy="68" r="14" fill="#334155"/>
+  <text x="1239" y="73" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="10" font-weight="700">MM</text>
+  <text x="1268" y="73" fill="#1E293B" font-family="Arial, sans-serif" font-size="13" font-weight="700">Mark</text>
+
+  <rect x="1148" y="108" width="236" height="268" rx="16" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="1170" y="136" fill="#64748B" font-family="Arial, sans-serif" font-size="11" font-weight="700">PROFILE MENU</text>
+
+  <rect x="1164" y="152" width="204" height="42" rx="10" fill="#F8FAFC"/>
+  <text x="1182" y="178" fill="#1E293B" font-family="Arial, sans-serif" font-size="13" font-weight="600">Profile settings</text>
+
+  <rect x="1164" y="200" width="204" height="42" rx="10" fill="#F8FAFC"/>
+  <text x="1182" y="226" fill="#1E293B" font-family="Arial, sans-serif" font-size="13" font-weight="600">Theme toggle</text>
+
+  <line x1="1164" y1="252" x2="1368" y2="252" stroke="#E2E8F0"/>
+
+  <rect x="1164" y="266" width="204" height="42" rx="10" fill="#FEF2F2"/>
+  <text x="1182" y="292" fill="#991B1B" font-family="Arial, sans-serif" font-size="13" font-weight="700">Logout</text>
+
+  <rect x="96" y="152" width="1020" height="184" rx="20" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="124" y="192" fill="#0F172A" font-family="Arial, sans-serif" font-size="24" font-weight="700">Variant B - Clean Product Header</text>
+  <text x="124" y="224" fill="#475569" font-family="Arial, sans-serif" font-size="14">A cleaner, lower-contrast baseline with subtle hierarchy and compact profile actions.</text>
+  <text x="124" y="248" fill="#475569" font-family="Arial, sans-serif" font-size="14">Use this if you want the header to feel more enterprise/productive than marketing-heavy.</text>
+  <text x="124" y="272" fill="#475569" font-family="Arial, sans-serif" font-size="14">Pairs well with table-heavy admin pages and audit workflows.</text>
+
+  <rect x="96" y="360" width="628" height="252" rx="20" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="124" y="400" fill="#0F172A" font-family="Arial, sans-serif" font-size="18" font-weight="700">Interaction Defaults</text>
+  <text x="124" y="430" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Avatar opens/closes menu</text>
+  <text x="124" y="454" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Outside click / Escape closes menu</text>
+  <text x="124" y="478" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Arrow key navigation in menu</text>
+  <text x="124" y="502" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Enter/Space activates selected item</text>
+  <text x="124" y="526" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Logout emphasized with danger styling</text>
+
+  <rect x="748" y="360" width="632" height="252" rx="20" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="776" y="400" fill="#0F172A" font-family="Arial, sans-serif" font-size="18" font-weight="700">Route + Role Rules</text>
+  <text x="776" y="430" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Dashboard route: /kudos/dashboard</text>
+  <text x="776" y="454" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Admin route: /kudos/admin (visible for isAdmin=true)</text>
+  <text x="776" y="478" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Post-login redirects by role</text>
+  <text x="776" y="502" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Keep server-side authz as source of truth</text>
+
+  <rect x="96" y="636" width="1284" height="304" rx="20" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="124" y="676" fill="#0F172A" font-family="Arial, sans-serif" font-size="18" font-weight="700">Figma Notes</text>
+  <text x="124" y="704" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Import this SVG as a starting frame for design exploration.</text>
+  <text x="124" y="728" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Duplicate frame and iterate mobile/tablet layouts.</text>
+  <text x="124" y="752" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Add annotations for #44 menu item states (active vs placeholder).</text>
+  <text x="124" y="776" fill="#475569" font-family="Arial, sans-serif" font-size="14">- Validate spacing/focus/tap-targets before code implementation.</text>
+  <text x="124" y="820" fill="#94A3B8" font-family="Arial, sans-serif" font-size="12">Import: drag file into Figma or use File -> Place image.</text>
+</svg>

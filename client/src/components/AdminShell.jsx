@@ -12,6 +12,7 @@ import Header from "./Header";
 const navItems = [
   { label: "Console", path: ADMIN_ROUTES.root },
   { label: "Users", path: ADMIN_ROUTES.users },
+  { label: "Admin Access", path: ADMIN_ROUTES.adminAccess },
   { label: "Tags", path: ADMIN_ROUTES.tags },
   { label: "Jobs", path: ADMIN_ROUTES.jobs },
   { label: "Feature Toggles", path: ADMIN_ROUTES.featureToggles },

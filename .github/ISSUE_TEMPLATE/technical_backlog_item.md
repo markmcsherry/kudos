@@ -2,7 +2,7 @@
 name: Technical Backlog Item
 about: Track technical improvements, refactors, and platform tasks
 title: "[Technical Backlog] "
-labels: ["type:tbi"]
+labels: ["status:new", "type:tbi"]
 assignees: []
 ---
 

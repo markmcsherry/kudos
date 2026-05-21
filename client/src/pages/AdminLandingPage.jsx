@@ -12,14 +12,14 @@ import { ADMIN_ROUTES } from "../admin/routes";
 
 const moduleTiles = [
   {
-    title: "Manage Admin Users",
-    description: "Admin account and role governance workflows.",
-    actionLabel: "Open Users",
-    actionTo: ADMIN_ROUTES.users
+    title: "Admin Access",
+    description: "Grant/revoke privileged roles.",
+    actionLabel: "Open Admin Access",
+    actionTo: ADMIN_ROUTES.adminAccess
   },
   {
-    title: "Manage Users",
-    description: "User lifecycle and status management.",
+    title: "Users",
+    description: "Account lifecycle and status.",
     actionLabel: "Open Users",
     actionTo: ADMIN_ROUTES.users
   },
