@@ -28,18 +28,19 @@ function verifyPassword(password, storedHash) {
   return crypto.timingSafeEqual(left, right);
 }
 
-export function createUser({ firstName, lastName, email, password }) {
+export function createUser({ firstName, lastName, email, password, status = "active" }) {
   const normalizedEmail = email.trim().toLowerCase();
+  const normalizedStatus = String(status || "").trim().toLowerCase() === "inactive" ? "inactive" : "active";
   const passwordHash = hashPassword(password);
   return withClient(async (client) => {
     try {
       const result = await client.query(
         `
-          INSERT INTO users (first_name, last_name, email, password_hash)
-          VALUES ($1, $2, $3, $4)
+          INSERT INTO users (first_name, last_name, email, password_hash, status)
+          VALUES ($1, $2, $3, $4, $5)
           RETURNING id, first_name, last_name, email, is_admin, status
         `,
-        [firstName, lastName, normalizedEmail, passwordHash]
+        [firstName, lastName, normalizedEmail, passwordHash, normalizedStatus]
       );
       return mapUserRow(result.rows[0]);
     } catch (error) {

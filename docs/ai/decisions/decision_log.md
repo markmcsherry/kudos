@@ -163,3 +163,25 @@ Use this file to capture meaningful technical decisions in lightweight ADR forma
 - Add guardrails in CI/linting to detect stale release/experiment toggles past review date.
 - Decide whether entitlement toggles are enforced server-side only or also reflected in client capability payloads.
 - Create a licensing decision (new DEC) to define plan tiers, entitlement source of truth, and billing/commercial constraints for optional features.
+
+### DEC-0011: Onboarding credential policy for admin-created users
+- Date: 2026-05-21
+- Status: Proposed
+- Context: User-management create/edit capabilities are now available in admin flows, but initial credential handling for admin-created end users is not yet finalized. Allowing admins to set permanent user passwords directly can create security and operational risk, and first-login behavior is currently not governed by a formal policy.
+- Decision: Pending final selection of onboarding credential model. Candidate options:
+  - **Option A: Admin sets initial password directly (current behavior)**
+  - **Option B: System-generated temporary credential with mandatory first-login password change**
+  - **Option C: Invite token/link flow with user-defined password on first activation**
+- Consequences: Until finalized, treat current behavior as transitional and avoid expanding permanent admin-assigned password semantics in additional flows.
+- Alternatives considered:
+  - Keep admin-assigned permanent password model with stronger policy controls only.
+  - Hybrid model: temporary credential for most users, invite-only mode for external identities.
+
+#### Follow-up TODO
+- Decide preferred model with PO/Design/Security review (recommended baseline: Option B or C, not A).
+- Define constraints for selected model:
+  - one-time use and expiration windows
+  - forced password rotation at first successful login
+  - audit events for issuance/redemption/expiry/failure
+  - sensitive artifact redaction rules
+- Create implementation stories for backend/token lifecycle, UI flow updates, and test coverage.
